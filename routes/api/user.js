@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userService = require("../../services/user");
-const user = require("./user");
+const mongoose = require("mongoose");
 
 router.get("/", (req, res, next) => {
   userService.findAll((err, data) => {
@@ -33,6 +33,7 @@ router.post("/", (req, res, next) => {
     email: req.body.email,
     city: req.body.city
   });
+  
 user.save()
     .then(result => {
       console.log(result);
