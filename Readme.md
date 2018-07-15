@@ -1,12 +1,28 @@
-Запуск демо-проекта
+Routes :
 
-1. Проверить, что инстанс MongoDB запущен
-1. Установить зависимости
-```npm install```
-2. Запустить сервер
-```npm start```
+Users:
 
-Через Postman сделать GET запрос к базе
-```localhost:1428/api/user```
+GET:
+user
+user/:id
 
-Поскольку база пустая - будет возвращен пустой массив, можете заполнить своими данными.
+POST:
+user/
+
+DELETE:
+user:id
+
+Messages:
+
+GET:
+message
+message/:id
+message/:connectedUsers/:userId
+
+POST:
+message/
+
+DELETE:
+message/:userId
+
+

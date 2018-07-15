@@ -1,14 +1,16 @@
 const UserRepository = require("../repositories/UserRepository");
+const GeneralRepository=require("../repositories/GeneralRepository");
+
 
 module.exports = {
   findAll: callback => {
-    UserRepository.getAll((err, data) => {
+    GeneralRepository.getAll((err, data) => {
       callback(null, data);
     });
   },
 
   findOne: (id, callback) => {
-    UserRepository.getById(id, (err, data) => {
+    GeneralRepository.getById(id, (err, data) => {
       callback(err, data);
     });
   }

@@ -49,7 +49,7 @@ message.save()
 });
 
 router.delete("/:userId", (req, res, next) => {
-  const id = req.params.productId;
+  const id = req.params.senderId;
  Message.remove({ _id: id })
     .exec()
     .then(result => {
@@ -61,5 +61,17 @@ router.delete("/:userId", (req, res, next) => {
         error: err
       });
     });
+});
+
+router.get("/connectedUsers/:userId", (req, res, next) => {
+  messageService.findConnectedUsers(Number(req.params.id), (err, data) => {
+    if (!err) {
+      res.data = data;
+      res.json(res.data);
+    } else {
+      res.status(400);
+      res.end();
+    }
+  });
 });
 module.exports = router;

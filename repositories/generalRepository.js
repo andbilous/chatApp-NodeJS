@@ -14,6 +14,7 @@ function getById(id, callback) {
   var query = model.findOne({
     _id: id
   });
+  
   query.exec(callback);
 }
 
