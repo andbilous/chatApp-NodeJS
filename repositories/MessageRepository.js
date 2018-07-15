@@ -11,18 +11,22 @@ function MessageRepository() {
   Repository.prototype.constructor.call(this);
   this.model = Message;
 }
-function getSender(callback) {
+
+ function getMessagesBySender(id,callback){
     var model = this.model;
-    var query = model.find();
-    query.exec(callback);
-  }
- function getConnectedUser(id,callback){
-    var model = this.model;
-    var query = model.getConnectedUser({
-        _id: id
+    var query = model.findAll({
+        senderId: id
       });
       query.exec(callback);
  } 
+ 
+ function getMessagesReceiver(id,callback){
+    var model = this.model;
+    var query = model.findAll({
+        receiverId: id
+      });
+      query.exec(callback);
+ }
 
 
 
