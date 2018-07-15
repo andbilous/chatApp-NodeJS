@@ -32,11 +32,11 @@ router.post("/", (req, res, next) => {
     receiverId: req.body.receiverId,
     messageBody:req.body.messageBody
   });
-user.save()
+message.save()
     .then(result => {
       console.log(result);
       res.status(201).json({
-        message: "Handling POST requests to /users",
+        message: "Handling POST requests to /messages",
         createdProduct: result
       });
     })
@@ -50,7 +50,7 @@ user.save()
 
 router.delete("/:userId", (req, res, next) => {
   const id = req.params.productId;
- User.remove({ _id: id })
+ Message.remove({ _id: id })
     .exec()
     .then(result => {
       res.status(200).json(result);
